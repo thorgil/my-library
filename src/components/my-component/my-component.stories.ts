@@ -1,7 +1,7 @@
 
 
 export default {
-  title: 'my-component'
+  title: 'My component'
 };
 export const Default = () => `<my-component first="Bipbip" last="Wallace"></my-component>`;
 // export const Default = () => html`<my-component first="Bipbip" last="Wallace"></my-component>`;
