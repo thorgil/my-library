@@ -40,23 +40,28 @@ export class ItemList {
 
     }
     startTimer() {
-        this.timer = window.setInterval(() => {
-            const newTodo: Item = {
-                description: "Item",
-                indx: this.items.length + 1
-            };
-            // the assignment to `this.items` will
-            // trigger a re-render. the assignment
-            // using '=' is important here, as we
-            // need that to make sure the rerender
-            // occurs
-            this.items = [...this.items, newTodo];
-        }, 2000);
+        this.addNewItem();
+        this.timer = window.setInterval((component) => {
+            component.addNewItem()
+        }, 2000, this);
     }
 
     stopTimer() {
         window.clearInterval(this.timer);
     }
+    addNewItem() {
+        const newTodo: Item = {
+            description: "Item",
+            indx: this.items.length + 1
+        };
+        // the assignment to `this.items` will
+        // trigger a re-render. the assignment
+        // using '=' is important here, as we
+        // need that to make sure the rerender
+        // occurs
+        this.items = [...this.items, newTodo];
+     }
+    
     render() {
         return (
             <div>
