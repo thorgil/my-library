@@ -30,7 +30,7 @@ export class ItemList {
         this.stopTimer();
     }
 
-    handleAutoFill() {
+    private handleAutoFill = () => {
         this.autoFill = !this.autoFill;
         if (this.autoFill) {
             this.startTimer();
@@ -60,13 +60,13 @@ export class ItemList {
         // need that to make sure the rerender
         // occurs
         this.items = [...this.items, newTodo];
-     }
-    
+    }
+
     render() {
         return (
             <div>
                 <h1>To-Do List</h1>
-                <button onClick={() => this.handleAutoFill()}> {this.autoFill ? 'Parar' : 'Rellenar'}</button>
+                <button onClick={this.handleAutoFill}> {this.autoFill ? 'Parar' : 'Rellenar'}</button>
                 <ul>
                     {this.items.map((todo) => <my-item indx={todo.indx} description={todo.description} > </my-item>)}
                 </ul>
